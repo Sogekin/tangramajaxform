@@ -31,7 +31,7 @@
 		if(opts.beforeSubmit && opts.beforeSubmit(arr,form,opts) === false) return this;
 
 		var q = baidu.url.jsonToQuery(arrayToObject(arr));
-		if(opts.type.toUpperCase() == "GET"){
+		if(opts.method.toUpperCase() == "GET"){
 			opts.url += (opts.url.indexOf("?") >= 0 ? "&" : "?") + q;
 			opts.data = null;
 		}else{
@@ -78,7 +78,6 @@
 					encType:"multipart/form-data",
 					action:opts.url
 				});
-					dir(form);
 				if(opts.timeout){
 					setTimeout(function(){
 						timedOut = true;
@@ -112,6 +111,16 @@
 			}
 		}
     }
+	/** 
+     * 通过submit进行提交
+     */
+    function ajaxForm(form,opts){
+		var self = this;
+        form.onsubmit = function(){
+			self.ajaxSubmit(opts);
+			return false;
+		}
+    }
 	/**
 	 * 将数组转换为JSON对象
 	 * @param {Array} a 需要转换的数组
@@ -130,13 +139,7 @@
 			}
 		});
 		return o;
-	}
-    /** 
-     * 通过submit进行提交
-     */
-    function ajaxForm(){
-        
-    }   
+	}   
     /** 
      * 收集表单数据
 	 * @return {Array}
