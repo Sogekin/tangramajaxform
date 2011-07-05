@@ -24,7 +24,7 @@
         opts = baidu.object.extend({
             url: this.getAttr("action")[0] || window.location,
             method:this.getAttr("method")[0] || "GET",
-			data:opts.data || {},
+			data:{},
 			onsuccess:function(){}
         },opts);
         var arr = this.formToArray(opts.semantic);
@@ -42,7 +42,7 @@
 		if(opts.iframe || files.length > 0){
 			fileUpload();
 		}else{
-			baidu.ajax.request(opts);
+			baidu.ajax.request(opts.url,opts);
 		}
 		function fileUpload(){
 			var id = "tfromIO-" + ajaxSubmitCount++;
