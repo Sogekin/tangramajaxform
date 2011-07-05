@@ -1,7 +1,8 @@
 /**
  * ajax.form
  * @author lifayu@baidu.com
- * @date 2011-07-01
+ * @date 2011-07-05
+ * @version 1.0
  */
 (function($){
 	var ajaxSubmitCount = 0,ajaxFormCount = 0;
