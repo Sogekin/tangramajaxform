@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=7" />
+  <title>Noah运维平台</title>
+  <script src="tangram1.3.9.js" type="text/javascript" charset="utf-8"></script>
+    <script src="util.js" type="text/javascript" charset="utf-8"></script>
+  <script src="ajaxform.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<input type="file" name="file3"/>
+	<form name="form" id="form" action="http://www.baidu.com">
+		<input type="text" name="age" />
+		1<input type="checkbox" name="cls" value="1"/>
+		2<input type="checkbox" name="cls" value="2"/>
+		3<input type="checkbox" name="cls" value="3"/>
+		<select name="type">	
+			<option value="xx">dsfs</option>
+			<option value="xdfx">ddfsdsfs</option>
+		</select>
+		<input type="file" name="file"/>
+		<input type="button" value="提交" id="btnSubmit"/>
+		<input type="button" value="重置" id="btnReset"/>
+	</form>
+<input type="file" name="file2"/>
+<script>
+T.event.on("btnSubmit","click",function(){
+	T.element("#form").ajaxSubmit({
+		onfailure:function(xhr){
+			log(xhr);
+		}
+	});
+});
+T.event.on("btnReset","click",function(){
+	T.element("#form").clearForm();
+});
+</script>
+</body>
+</html>
