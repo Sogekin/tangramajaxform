@@ -153,12 +153,6 @@
 			var el = els[i];
 			var n = el.name;
 			if(!n) continue;
-			/*
-			if(semantic && form.clk && el.type == "image"){
-				if(!el.disabled && form.clk == el){
-				}
-			}
-			*/
 			var v = this.fieldValue(el,true);
 			if(v && v.constructor == Array){
 				for(var j=0,jmax=v.length; j< jmax; j++){
